@@ -1,0 +1,44 @@
+[advice]
+    statusHints = false
+
+[alias]
+    ci = commit
+    co = checkout
+    dom = diff origin/master
+    domns = diff origin/master --name-status
+    dt = diff-tracked
+    dtns = diff-tracked --name-status
+    ff = merge --ff-only
+    g = log --graph --decorate --format=graph --all
+    logns = log --name-status --decorate
+    logp = log -p --decorate
+    po = push-current-branch-to-origin
+    stat = status -sb
+
+[branch]
+    autosetupmerge = always
+    autosetuprebase = always
+
+[color]
+    ui = auto
+
+[core]
+    editor = ~/bin/vi
+	  excludesfile = ~/.gitignore_global
+
+[fetch]
+    prune = true
+
+[merge]
+    tool = vimdiff
+
+[pretty]
+    graph = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold cyan)<%an>%C(reset)
+
+[user]
+    name = Alex Brick
+    email = alexbrick@porch.com
+[push]
+    default = simple
+[credential]
+	helper = osxkeychain
