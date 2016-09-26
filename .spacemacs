@@ -258,8 +258,9 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
-  (setq flycheck-javascript-eslint-executable "eslint-project-relative")
-  (setq ensime-goto-test-config-defaults
+  (setq flycheck-javascript-eslint-executable "eslint-project-relative") ; Use the eslint from deps
+
+  (setq ensime-goto-test-config-defaults ; Fix the testing style
         '(
          :test-class-names-fn ensime-goto-test--test-class-names
          :test-class-suffixes ("Test" "Spec")
@@ -268,6 +269,16 @@ you should place your code here."
          :is-test-dir-fn ensime-goto-test--is-test-dir
          :test-template-fn ensime-goto-test--test-template-scalatest-2
         ))
+
+  ;; Setup git diff-tracked
+  (defun git-diff-tracked ()
+    "Display the diff popup against the branch this one tracks."
+    (interactive)
+    (magit-diff (magit-get-upstream-branch))
+    )
+
+  (spacemacs/set-leader-keys "gT" 'git-diff-tracked)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
