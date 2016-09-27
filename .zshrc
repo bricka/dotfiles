@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/alexbrick/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -52,11 +52,11 @@ ZSH_THEME="bricka"
 plugins=(git mvn zsh-syntax-highlighting)
 
 # User configuration
+export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 source ~/src/zsh-git-prompt/zshrc.sh
 export GIT_PROMPT_EXECUTABLE=haskell
 
-export PATH="/Users/alexbrick/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
@@ -97,7 +97,7 @@ autoload -U colors && colors
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/alexbrick/google-cloud-sdk/path.zsh.inc'
+source '~/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
-source '/Users/alexbrick/google-cloud-sdk/completion.zsh.inc'
+source '~/google-cloud-sdk/completion.zsh.inc'
