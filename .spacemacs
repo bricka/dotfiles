@@ -272,8 +272,23 @@ you should place your code here."
     (magit-diff (magit-get-upstream-branch))
     )
 
-  (spacemacs/set-leader-keys "gT" 'git-diff-tracked)
+  (spacemacs/set-leader-keys "gt" 'git-diff-tracked)
 
+  ;; Remap gb to branch controls
+  (spacemacs/set-leader-keys "gb" 'magit-branch-popup)
+
+  ;; Open terminal in project root
+  (defun open-terminal-projectile-root ()
+    "Open a terminal in the current projectile root"
+    (interactive)
+    (term-send-string
+     (spacemacs/default-pop-shell)
+     (format
+      "cd '%s'\n"
+      (projectile-project-root)))
+    )
+
+  (spacemacs/set-leader-keys "p'" 'open-terminal-projectile-root)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
