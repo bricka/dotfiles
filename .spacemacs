@@ -274,8 +274,11 @@ you should place your code here."
 
   (spacemacs/set-leader-keys "gt" 'git-diff-tracked)
 
-  ;; Remap gb to branch controls
-  (spacemacs/set-leader-keys "gb" 'magit-branch-popup)
+  ;; Add some preferred git keybindings
+  (spacemacs/set-leader-keys
+    "gb" 'magit-branch-popup
+    "gr" 'magit-rebase-popup
+    )
 
   ;; Open terminal in project root
   (defun open-terminal-projectile-root ()
