@@ -282,10 +282,20 @@ class %TESTCLASS% extends FunSpec with Matchers {
   (spacemacs/set-leader-keys
     "gb" 'magit-branch-popup
     "gr" 'magit-rebase-popup
+    "gc" 'magit-commit-popup
     )
 
   ;; Allow git commit summary lines to be as long as you want
   (setq git-commit-summary-max-length 100)
+
+  (defun git-push-to-backup ()
+    "Pushes the current branch to its pushRemote with -F, unless it would push to origin/master"
+    (interactive)
+    (if (string= (magit-get-push-branch) "origin/master")
+        (user-error "Cannot use git-push-to-backup to push to origin/master")
+        (magit-push-current-to-pushremote '("--force"))))
+
+  (spacemacs/set-leader-keys "gP" 'git-push-to-backup)
   )
 
 (defun dotspacemacs/user-config ()
