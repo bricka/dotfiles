@@ -67,8 +67,6 @@ export LANG=en_US.UTF-8
 
 bindkey -v
 
-export EDITOR=~/bin/vi
-
 export DEFAULT_USER=alexbrick
 
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
