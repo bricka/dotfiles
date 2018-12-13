@@ -5,7 +5,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="bricka"
+ZSH_THEME="mortalscumbag"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,10 +53,6 @@ plugins=(git mvn zsh-syntax-highlighting)
 
 # User configuration
 export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-
-source ~/src/zsh-git-prompt/zshrc.sh
-export GIT_PROMPT_EXECUTABLE=haskell
-
 
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
