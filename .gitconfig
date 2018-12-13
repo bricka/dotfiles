@@ -23,7 +23,6 @@
     ui = auto
 
 [core]
-    editor = ~/bin/vi
 	  excludesfile = ~/.gitignore_global
 
 [fetch]
