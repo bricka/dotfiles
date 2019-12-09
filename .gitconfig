@@ -6,10 +6,11 @@
     co = checkout
     dom = diff origin/master
     domns = diff origin/master --name-status
-    dt = diff-tracked
-    dtns = diff-tracked --name-status
+    dt = diff @{upstream}
+    dtns = diff @{upstream} --name-status
     ff = merge --ff-only
     g = log --graph --decorate --format=graph --all
+    gm = log --graph --decorate --format=graph
     logns = log --name-status --decorate
     logp = log -p --decorate
     po = push-current-branch-to-origin

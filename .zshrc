@@ -97,3 +97,14 @@ if [ -d '~/google-cloud-sdk' ]; then
   # The next line enables shell command completion for gcloud.
   source ~/google-cloud-sdk/completion.zsh.inc
 fi
+
+# NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Don't use Husky
+HUSKY_SKIP_INSTALL=1
+
+if [ -e ~/.work.zsh ]; then
+    source ~/.work.zsh
+fi
