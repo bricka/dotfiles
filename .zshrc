@@ -52,13 +52,6 @@ ZSH_THEME="mortalscumbag"
 plugins=(git mvn zsh-syntax-highlighting)
 
 # User configuration
-export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,10 +90,6 @@ if [ -d '~/google-cloud-sdk' ]; then
   # The next line enables shell command completion for gcloud.
   source ~/google-cloud-sdk/completion.zsh.inc
 fi
-
-# NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Don't use Husky
 HUSKY_SKIP_INSTALL=1
