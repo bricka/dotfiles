@@ -15,6 +15,7 @@
     logp = log -p --decorate
     po = push-current-branch-to-origin
     stat = status -sb
+    identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 
 [branch]
     autosetupmerge = always
@@ -34,11 +35,9 @@
 
 [pretty]
     graph = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold cyan)<%an>%C(reset)
-
-[user]
-    name = Alex Brick
-    email = alexbrick@porch.com
 [push]
     default = simple
 [credential]
 	helper = osxkeychain
+[user]
+	useConfigOnly = true
