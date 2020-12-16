@@ -37,7 +37,7 @@
     graph = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold cyan)<%an>%C(reset)
 [push]
     default = simple
-[credential]
-	helper = osxkeychain
 [user]
 	useConfigOnly = true
+[init]
+	defaultBranch = main
