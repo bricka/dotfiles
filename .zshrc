@@ -60,7 +60,8 @@ export LANG=en_US.UTF-8
 
 bindkey -v
 
-export DEFAULT_USER=alexbrick
+export EDITOR="emacsclient -a emacs -t"
+export VISUAL="emacsclient -a emacs -c"
 
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 
@@ -68,31 +69,37 @@ export NODE_ENV=development
 
 autoload -U colors && colors
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Support for emacs vterm
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+vterm_printf(){
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+vterm_cmd() {
+    local vterm_elisp
+    vterm_elisp=""
+    while [ $# -gt 0 ]; do
+        vterm_elisp="$vterm_elisp""$(printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')")"
+        shift
+    done
+    vterm_printf "51;E$vterm_elisp"
+}
 
-if [ -d '~/google-cloud-sdk' ]; then
-  # The next line updates PATH for the Google Cloud SDK.
-  source ~/google-cloud-sdk/path.zsh.inc
+vterm_prompt_end() {
+    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)";
+}
+setopt PROMPT_SUBST
+PROMPT=$PROMPT'%{$(vterm_prompt_end)%}'
 
-  # The next line enables shell command completion for gcloud.
-  source ~/google-cloud-sdk/completion.zsh.inc
-fi
-
-# Don't use Husky
-HUSKY_SKIP_INSTALL=1
+source ~/.zshenv
 
 if [ -e ~/.work.zsh ]; then
     source ~/.work.zsh

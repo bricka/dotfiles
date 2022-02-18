@@ -1,5 +1,6 @@
 /.ensime
 /.ensime_cache/
+.log/
 .DS_Store
 .dir-locals.el
 .ac-php-conf.json
