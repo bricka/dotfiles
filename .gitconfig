@@ -15,7 +15,6 @@
     logp = log -p --decorate
     po = push-current-branch-to-origin
     stat = status -sb
-    identity = "! git config user.name \"$(git config user.$1.name)\"; git config user.email \"$(git config user.$1.email)\"; git config user.signingkey \"$(git config user.$1.signingkey)\"; :"
 
 [branch]
     autosetupmerge = always
