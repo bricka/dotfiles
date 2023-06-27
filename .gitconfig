@@ -38,6 +38,7 @@
 [push]
     default = simple
 [user]
+	name = "Alex Figl-Brick"
 	useConfigOnly = true
 [init]
 	defaultBranch = main
