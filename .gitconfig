@@ -1,43 +1,56 @@
 [advice]
-    statusHints = false
+	statusHints = false
 
 [alias]
-    ci = commit
-    co = checkout
-    dom = diff origin/master
-    domns = diff origin/master --name-status
-    dt = diff @{upstream}
-    dtns = diff @{upstream} --name-status
-    ff = merge --ff-only
-    g = log --graph --decorate --format=graph --all
-    gm = log --graph --decorate --format=graph
-    logns = log --name-status --decorate
-    logp = log -p --decorate
-    po = push-current-branch-to-origin
-    stat = status -sb
+	ci = commit
+	co = checkout
+	dom = diff origin/master
+	domns = diff origin/master --name-status
+	dt = diff @{upstream}
+	dtns = diff @{upstream} --name-status
+	ff = merge --ff-only
+	g = log --graph --decorate --format=graph --all
+	gm = log --graph --decorate --format=graph
+	logns = log --name-status --decorate
+	logp = log -p --decorate
+	po = push-current-branch-to-origin
+	stat = status -sb
 
 [branch]
-    autosetupmerge = always
-    autosetuprebase = always
+	autosetupmerge = always
+	autosetuprebase = always
+	sort = committerdate
 
 [color]
-    ui = auto
+	ui = auto
 
 [core]
-	  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/alex/.gitexclude
+
+[diff]
+	algorithm = histogram
+	colorMoved = plain
 
 [fetch]
-    prune = true
+	all = true
+	prune = true
+	pruneTags = true
+
+[init]
+	defaultBranch = main
 
 [merge]
-    tool = vimdiff
+	tool = vimdiff
 
 [pretty]
-    graph = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold cyan)<%an>%C(reset)
+	graph = %C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold cyan)<%an>%C(reset)
+
 [push]
-    default = simple
+	default = simple
+
+[tag]
+	sort = version:refname
+
 [user]
 	name = "Alex Figl-Brick"
 	useConfigOnly = true
-[init]
-	defaultBranch = main
